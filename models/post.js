@@ -6,7 +6,8 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     title: { type: String, requred: true },
     content: { type: String, required: true },
-    datePosted: { type: Date, default: Date.now }
+    datePosted: { type: Date, require: true, default: Date.now },
+    isPublished: { type: Boolean, require: true, default: false }
 });
 
 mongoose.virtual('url').get(function() {
