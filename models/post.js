@@ -10,11 +10,11 @@ const PostSchema = new Schema({
     isPublished: { type: Boolean, require: true, default: false }
 });
 
-mongoose.virtual('url').get(function() {
+PostSchema.virtual('url').get(function() {
     return `/posts/${this._id}`;
 })
 
-mongoose.virtual('datePostedFormatted').get(function() {
+PostSchema.virtual('datePostedFormatted').get(function() {
     return DateTime.fromJSDate(this.datePosted).toLocaleString(DateTime.DATE_MED);
 });
 
