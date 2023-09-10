@@ -9,7 +9,7 @@ const CommentSchema = new Schema({
     datePosted: { type: String, required: true, default: Date.now }
 });
 
-mongoose.virual('postedAgo').get(function() {
+mongoose.virtual('postedAgo').get(function() {
     return format(this.datePosted);
 })
 
