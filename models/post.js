@@ -22,4 +22,4 @@ PostSchema.virtual('timePosted').get(function() {
     return DateTime.fromJSDate(this.datePosted).toLocaleString(DateTime.TIME_SIMPLE);
 });
 
-module.exports = mognoose.model('Post', PostSchema);
+module.exports = mongoose.model('Post', PostSchema);

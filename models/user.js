@@ -8,4 +8,4 @@ const UserSchema = new Schema({
     status: { type: String, required: true, enum: ['admin', 'editor'], default: 'editor'}
 });
 
-module.exports = mognoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
