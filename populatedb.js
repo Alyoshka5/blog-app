@@ -20,7 +20,7 @@ async function main() {
   console.log("Debug: About to connect");
   await mongoose.connect(mongoDB);
   console.log("Debug: Should be connected?");
-  await createPosts();
+  await createShortPosts();
   await createComments();
   console.log("Debug: Closing mongoose");
   mongoose.connection.close();
@@ -46,6 +46,16 @@ async function commentCreate(idx, post, content) {
     comments[idx] = comment;
 }
 
+async function createShortPosts() {
+  await Promise.all([
+    postCreate(0, "Introduction to JavaScript", "JavaScript is a versatile programming language...", true),
+    postCreate(1, "Getting Started with React", "React is a popular JavaScript library for building user interfaces...", true),
+    postCreate(2, "Node.js Fundamentals", "Node.js allows you to build scalable network applications...", true),
+    postCreate(3, "Web Security Best Practices", "Ensuring the security of your web applications is crucial...", true),
+    postCreate(4, "GraphQL vs. REST API", "GraphQL is a query language for APIs that offers flexibility...", true),
+    postCreate(5, "Machine Learning in Python", "Python is widely used for machine learning and data science...", false),
+  ]);
+}
 
 async function createPosts() {
     await Promise.all([
