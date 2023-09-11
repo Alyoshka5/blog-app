@@ -1,0 +1,12 @@
+
+
+GET http://localhost:3000/blog/posts/64fe4ba4bab769c7ff61bb68/comments
+
+###
+
+POST http://localhost:3000/blog/posts/64fe4ba4bab769c7ff61bb68/comments
+Content-Type: application/json
+
+{
+  "content": "I love this. I love React"
+}
