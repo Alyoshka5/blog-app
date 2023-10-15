@@ -2,9 +2,11 @@ const asyncHandler = require('express-async-handler');
 const Post = require('../models/post');
 
 exports.readList = asyncHandler(async (req, res, next) => {
-    const posts = await Post.find({ isPublished: true }).sort({ datePosted: -1 }).exec();
-
-    res.json({ posts });
+    let posts = await Post.find({ isPublished: true }).sort({ datePosted: -1 }).exec();
+    posts = {'he': 'ha'}
+    console.log(posts);
+    res.json({ posts['he'] });
+    // res.json({ "hi": "hello" });
 });
 
 exports.readDetail = asyncHandler(async (req, res, next) => {
